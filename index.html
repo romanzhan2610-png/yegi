@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAY Over - Hoodie</title>
+
+    <meta
+      name="description"
+      content="A hybrid of hoodie and travel pillow. LAY Over is built for journeys—designed to support your neck and improve rest on the move."
+    />
+    <meta name="theme-color" content="#f5f5f5" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="./img/favicon-96x96.min.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./img/apple-touch-icon.min.png"
+    />
+    <link rel="manifest" href="./img/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+  </head>
+  <body>
+    <svg style="display: none">
+      <symbol id="icon-logo" viewBox="0 0 132 59">
+        <path
+          d="M51.7434 31.5162C53.869 31.0388 56.0677 32.1413 58.7747 31.6469C62.0611 31.0467 60.9539 29.7126 62.7576 27.776C64.5431 28.4322 64.9679 30.1341 67.2689 31.1134C69.6442 32.1244 71.9681 31.6233 74.5487 31.6084C72.1176 38.5895 59.5123 42.1825 52.5332 34.5197C52.4377 34.4148 51.6843 33.4038 51.6251 33.2143L51.7434 31.5162ZM54.2499 21.9071C56.276 22.8834 57.6374 23.804 57.6834 26.2222C54.2498 26.9936 49.8884 25.2635 48.9659 22.5725C49.7325 20.6993 52.3127 20.9736 54.2499 21.9072V21.9071ZM77.475 15.6995C78.4251 18.1883 76.4516 21.6407 75.2281 23.2869C74.5185 24.2415 70.0454 27.6164 67.7425 25.9C65.5314 24.2521 69.0462 19.2046 69.9546 18.4658C71.4099 17.2822 74.632 15.0511 77.4749 15.6995H77.475ZM97.1252 26.9306C97.0082 24.1797 99.2994 22.6694 100.58 20.3382C104.121 13.8916 97.9712 9.45314 93.7363 16.0559C91.77 19.1215 91.6684 21.4023 89.7775 22.1404C85.8495 19.5459 88.4995 -2.41213 77.4992 3.75867C72.9168 6.32931 75.6922 7.48447 74.2243 10.8861C72.3541 14.0354 63.9907 12.4022 61.915 19.971C60.5945 24.7865 58.8635 19.0318 53.3503 17.6383C48.0351 16.2949 46.5831 19.1039 42.7321 18.6264C41.8026 16.4482 41.8664 14.3897 39.4798 13.5985C37.3135 12.8803 34.5441 13.3987 33.1524 14.762C30.4048 17.4531 34.9576 23.0209 32.233 28.1973C30.018 32.4055 22.87 32.1274 24.812 25.6377C25.8368 22.2134 31.4578 18.4948 27.2183 15.4273C18.6057 9.19569 13.7553 24.9033 16.5504 32.204C18.0717 36.1775 21.2654 38.5646 26.9881 37.7802C33.2276 36.925 34.7496 32.5636 37.7128 33.2355C40.9779 43.282 20.7961 51.3172 13.28 41.9756C8.15363 35.6042 12.4828 28.3616 12.5644 25.1655C12.6614 21.3644 9.18527 20.7527 6.66584 22.6962C4.9548 24.0161 3.78088 26.7824 3.30213 29.7352C0.602549 46.3882 17.3655 61.2339 37.3606 47.2856C40.9774 44.7625 44.1669 40.217 43.7406 33.1586C45.2251 33.9739 46.4574 38.4464 52.0026 41.6087C60.0472 46.1963 70.8152 43.8651 77.3141 38.4391C85.1955 31.8588 78.8155 30.9582 79.3175 28.2381C80.0475 26.9567 80.6548 26.0906 82.3687 25.9331C85.0951 28.6312 83.6856 36.9771 82.0242 40.0842C80.1709 43.5506 76.8501 46.1811 72.4818 47.5865C60.9392 51.3001 55.3877 44.4059 51.9533 45.2516C49.6557 45.8172 49.0827 48.663 50.1174 50.9193C53.2079 57.6589 70.2672 55.4437 76.7975 52.2584C80.9023 50.256 83.4614 47.5952 86.1045 44.6274C89.9702 40.2869 89.5117 36.6985 90.1442 33.9209L90.7469 32.4472C91.3659 32.476 94.3262 33.6583 95.7867 33.9556C111.825 37.2191 116.846 23.2165 121.227 33.8436C122.525 36.9904 124.138 42.1229 121.622 44.8238C117.95 48.7654 104.297 50.6112 100.385 45.9564C98.2434 43.4082 98.699 37.9978 95.274 37.1242C90.1075 35.8064 89.7627 41.8145 91.34 45.456C96.6562 57.7295 125.75 58.3774 128.11 43.9019C129.512 35.296 123.958 28.3859 121.344 22.7907C119.784 19.4524 118.828 15.8153 114.013 16.7728C107.005 18.1664 111.672 22.4422 112.153 24.3159C110.077 27.3704 100.379 29.8805 97.125 26.9307L97.1252 26.9306Z"
+        />
+        <path
+          d="M34.013 38.1528C29.6567 45.2266 12.8503 46.4757 13.5974 32.9668C15.6933 36.6518 17.1282 39.2555 21.9119 40.3067C26.6408 41.3459 30.8748 39.5213 34.013 38.1528H34.013ZM27.4527 28.28C27.5461 25.6131 28.9191 23.1322 30.4862 22.0952C30.3193 25.2372 30.536 28.1975 27.4527 28.28ZM73.1641 10.3326C73.1633 6.06642 73.567 4.34841 76.4689 2.71729C86.9405 -3.16934 88.5643 12.1358 89.8238 20.0039C91.7537 17.7139 95.1796 7.69842 101.257 12.3924C106.581 16.5051 99.4265 23.4732 98.4731 26.5248C102.659 27.1714 107.435 25.9706 110.606 24.2616C110.022 22.4649 108.021 21.1612 108.873 18.6014C109.424 16.943 111.461 15.8421 113.758 15.463C120.187 14.4017 120.734 18.663 122.679 22.4C123.651 24.2688 124.773 25.6224 125.771 27.5396C134.083 43.5179 129.792 57.4484 107.23 56.0529C100.992 55.6671 94.931 53.3084 91.3305 48.476C90.158 46.9023 89.8236 44.7909 88.9269 43.0811C85.088 49.8736 77.3897 55.5611 66.2571 56.6369C45.2779 58.6647 45.0763 45.5778 52.278 43.5417C51.1108 42.5863 49.3169 41.5681 48.1018 40.6929C46.4869 39.5295 46.1983 38.8865 45.0168 37.5084C43.5757 47.1848 32.0272 55.1268 20.2003 54.1602C8.79862 53.2283 0.207985 43.7573 1.6665 30.8396C2.26174 25.5667 5.75283 17.813 11.801 20.7665C18.4743 24.0253 6.05394 36.4437 17.2474 43.211C22.322 46.2789 34.8088 45.31 36.6014 34.6486C32.594 37.2725 26.0405 41.8748 19.4367 38.009C11.3143 33.2544 13.8238 18.8743 19.3197 14.0041C21.8394 11.7711 26.049 12.879 28.1389 14.4818C34.8914 19.6606 23.1968 24.1054 26.6461 29.4435C29.9897 30.0611 31.6081 27.4227 31.7876 24.3075C31.9856 20.871 29.8138 17.7834 31.1496 14.9798C32.4834 12.1807 42.0915 8.66104 43.6098 17.4288C48.5363 16.5361 52.8295 13.4076 60.3065 20.2229C62.6288 13.8188 63.8612 13.8777 73.1641 10.3326L73.1641 10.3326ZM71.9081 9.49784C67.8643 10.44 60.0596 13.523 59.7054 17.7783C53.9386 13.9166 50.6318 14.1594 44.4523 15.5992C44.0269 10.4876 38.5883 10.8052 35.3004 10.8052C32.8032 10.8052 31.1636 12.8322 29.6348 13.8559C21.1683 8.18639 18.508 12.3959 15.4221 17.0755C14.4378 18.568 14.3882 18.4942 13.9457 20.3931C4.5935 15.4445 0 24.2822 0 35.2105C0 50.2704 18.074 63.0222 36.8638 51.5915C40.6722 49.2747 44.7277 45.3063 45.7598 40.8759C46.6349 41.339 46.5444 41.2496 47.3634 41.8872C48.5047 42.7757 47.6139 42.6191 49.2462 43.055C47.2579 46.0242 46.6313 44.7506 46.6313 49.5922C46.6313 60.9988 69.6478 59.7737 79.1807 54.6857C81.0189 53.7046 82.7379 52.4275 84.3693 51.158C85.2325 50.4862 85.9178 49.8335 86.6164 49.0471C87.8709 47.6346 87.2834 47.4103 88.9047 46.9773C90.3944 53.3713 100.809 57.8725 108.516 57.8725C130.983 57.8725 136.93 44.7556 126.692 26.1865C121.516 12.8975 117.926 12.7215 111.738 14.8459C109.863 15.49 107.209 16.8419 107.209 19.5215C107.209 22.1312 108.047 22.1239 108.516 23.8795C105.718 24.1124 105.048 25.1869 101.107 25.1869C102.464 22.6225 107.083 16.1522 102.975 11.988C98.4449 7.39525 92.0529 11.5335 91.0837 15.1634C88.9015 13.5646 89.9817 3.04649 83.4996 0.515533C77.3089 -1.90162 69.6073 4.70271 71.9082 9.49784H71.9081Z"
+        />
+        <path
+          d="M100.233 37.3894C109.412 37.3894 114.435 33.2466 117.23 32.5955C117.672 34.4957 119.844 37.9526 119.844 41.3117C119.844 44.8618 111.608 45.6697 108.078 45.6697C100.97 45.6697 102.532 41.7334 100.233 37.3894H100.233ZM91.3594 36.1832C102.054 33.3078 97.5023 44.1748 104.103 46.5548C109.374 48.4553 120.669 46.592 121.46 41.6571C121.83 39.3456 119.842 33.8241 118.81 32.2963C116.931 29.5151 113.881 32.4507 111.213 33.5575C106.13 35.6661 96.2429 37.0051 91.6325 34.136L91.3594 36.1832Z"
+        />
+        <path
+          d="M57.2891 45.2729C65.942 50.6541 80.9127 45.0102 81.8106 35.7871C77.1743 42.1417 68.7815 46.2587 57.2891 45.2729Z"
+        />
+        <path
+          d="M57.127 34.3915C60.1762 34.2934 61.9439 33.134 63.6233 32.2736C64.8524 32.9781 67.1236 33.5663 68.3452 34.2865C65.5058 35.9444 59.6787 37.4818 57.127 34.3915ZM53.1016 32.6981C55.5299 35.1562 57.108 37.3955 62.3119 37.4163C66.8819 37.4346 69.9108 35.1723 71.9386 33.0453C67.4517 33.1332 65.4235 31.8916 63.1876 29.9551C60.3154 33.6563 58.8587 33.6197 53.1016 32.6982V32.6981Z"
+        />
+        <path
+          d="M70.5204 22.4563C70.5572 22.4006 70.6305 22.2734 70.673 22.2103C71.7839 20.5635 73.0389 19.6026 74.4424 18.7334C74.1422 19.7669 71.3602 24.581 70.2219 22.8866L70.5204 22.4562V22.4563ZM68.5234 24.7107C72.8457 25.563 75.9012 20.5448 76.5584 16.8242C72.6052 17.3444 68.7064 20.7 68.5234 24.7107Z"
+        />
+        <path
+          d="M50.5859 22.5742C51.6403 23.9701 53.5185 25.0178 56.0744 25.0865C54.4981 23.6359 53.7292 22.6362 50.5859 22.5742Z"
+        />
+      </symbol>
+      <symbol id="icon-hero-text" viewBox="0 0 265 60">
+        <path
+          d="M171.754 34C172.379 35.25 172.962 36.5 173.504 37.75C174.046 38.9583 174.587 40.3958 175.129 42.0625C175.671 40.3958 176.212 38.9583 176.754 37.75C177.296 36.5 177.879 35.25 178.504 34L185.254 19.875H194.629L174.879 59.25L155.129 19.875H165.004L171.754 34ZM121.422 0C125.547 0 129.38 0.770834 132.922 2.3125C136.505 3.8125 139.651 5.89583 142.359 8.5625C145.068 11.2292 147.172 14.3333 148.672 17.875C150.214 21.4167 150.984 25.2083 150.984 29.25C150.984 33.2917 150.214 37.0833 148.672 40.625C147.172 44.1667 145.068 47.2708 142.359 49.9375C139.651 52.6042 136.505 54.7083 132.922 56.25C129.38 57.75 125.547 58.5 121.422 58.5C117.339 58.5 113.505 57.75 109.922 56.25C106.339 54.7083 103.193 52.6042 100.484 49.9375C97.8177 47.2708 95.7135 44.1667 94.1719 40.625C92.6302 37.0833 91.8594 33.2917 91.8594 29.25C91.8594 25.2083 92.6302 21.4167 94.1719 17.875C95.7135 14.3333 97.8177 11.2292 100.484 8.5625C103.193 5.89583 106.339 3.8125 109.922 2.3125C113.505 0.770834 117.339 0 121.422 0ZM215.451 18.875C219.035 18.875 222.264 19.7083 225.139 21.375C228.055 23.0417 230.368 25.3125 232.076 28.1875C233.785 31.0208 234.639 34.25 234.639 37.875V41.1875H210.951C209.91 41.1875 208.868 41.1458 207.826 41.0625C206.785 40.9375 205.743 40.7917 204.701 40.625C205.201 43.5 206.576 45.8958 208.826 47.8125C211.118 49.7292 213.91 50.6875 217.201 50.6875C219.576 50.6875 221.743 50.1875 223.701 49.1875C225.66 48.1458 227.264 46.8125 228.514 45.1875L230.639 53.9375C228.805 55.3958 226.722 56.5 224.389 57.25C222.055 58 219.597 58.375 217.014 58.375C212.972 58.375 209.368 57.5 206.201 55.75C203.035 54 200.555 51.6042 198.764 48.5625C197.014 45.5208 196.139 42.0833 196.139 38.25C196.139 34.5833 196.993 31.2917 198.701 28.375C200.451 25.4583 202.785 23.1458 205.701 21.4375C208.66 19.7292 211.91 18.875 215.451 18.875ZM6.45605 51.6943H18.9814V57.376H0V18.6367H6.45605V51.6943ZM55.2871 57.376H48.7881L45.0859 48.207H31.6992L27.9551 57.376H21.7139L38.457 17.3027H38.5439L55.2871 57.376ZM63.959 28.623C64.3319 29.2829 64.6909 29.957 65.0352 30.6455C65.3795 31.3055 65.724 32.0954 66.0684 33.0137C66.4414 32.0954 66.7992 31.3055 67.1436 30.6455C67.4878 29.957 67.8468 29.2829 68.2197 28.623L73.7295 18.6367H80.4014L69.0381 38.8672V57.376H62.668V38.8672L51.3047 18.6367H58.4922L63.959 28.623ZM264.721 27.6875C263.929 27.4375 263.033 27.3125 262.033 27.3125C258.7 27.3125 256.012 28.375 253.971 30.5C251.971 32.625 250.971 35.6667 250.971 39.625V57.375H242.158V19.875H250.158V26.5C251.492 24.3333 253.2 22.625 255.283 21.375C257.367 20.125 259.846 19.5 262.721 19.5L264.721 27.6875ZM121.422 8.8125C117.672 8.8125 114.276 9.72917 111.234 11.5625C108.234 13.3958 105.839 15.8542 104.047 18.9375C102.297 22.0208 101.422 25.4583 101.422 29.25C101.422 33 102.297 36.4375 104.047 39.5625C105.839 42.6458 108.234 45.1042 111.234 46.9375C114.276 48.7708 117.672 49.6875 121.422 49.6875C125.172 49.6875 128.547 48.7708 131.547 46.9375C134.589 45.1042 136.984 42.6458 138.734 39.5625C140.526 36.4375 141.422 33 141.422 29.25C141.422 25.4583 140.526 22.0208 138.734 18.9375C136.984 15.8542 134.589 13.3958 131.547 11.5625C128.547 9.72917 125.172 8.8125 121.422 8.8125ZM38.3711 30.8184C38.0268 32.1382 37.6822 33.2861 37.3379 34.2617C36.9936 35.2086 36.6062 36.1985 36.1758 37.2314L33.8086 43.042H42.9336L40.6094 37.2314C40.179 36.2272 39.7773 35.2373 39.4043 34.2617C39.06 33.2861 38.7154 32.1383 38.3711 30.8184ZM215.389 26.1875C212.764 26.1875 210.451 27.0208 208.451 28.6875C206.451 30.3542 205.139 32.4583 204.514 35C206.68 34.5833 208.826 34.375 210.951 34.375H220.451C221.493 34.375 222.493 34.4167 223.451 34.5C224.451 34.5833 225.41 34.6875 226.326 34.8125C225.701 32.2708 224.389 30.2083 222.389 28.625C220.43 27 218.097 26.1875 215.389 26.1875Z"
+        />
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <path
+          d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+        />
+      </symbol>
+      <symbol id="icon-insta" viewBox="0 0 24 24">
+        <path
+          d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+        />
+      </symbol>
+      <symbol id="icon-fb" viewBox="0 0 24 24">
+        <path
+          d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+        />
+      </symbol>
+    </svg>
+
+    <header id="main-header">
+      <div class="logo">
+        <svg><use href="#icon-logo"></use></svg>
+      </div>
+      <button class="order-btn">ORDER NOW</button>
+    </header>
+
+    <div class="fixed-hero" data-header="dark">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-left">
+          <svg><use href="#icon-hero-text"></use></svg>
+        </div>
+        <div class="hero-right">A hoodie with a built-in travel pillow</div>
+      </div>
+      <div class="scroll-hint">
+        Scroll to learn more
+        <div class="mouse-icon"></div>
+      </div>
+    </div>
+
+    <div class="scrolling-layer">
+      <div class="hero-delay-spacer"></div>
+
+      <section class="second-section" data-header="light">
+        <div class="second-sticky">
+          <div class="sun-circle"></div>
+          <div class="content-wrap">
+            <h2>
+              <span>Hood <img src="img/2.min.png" alt="Detail" /> that</span><br />
+              <span>feels like cloud</span>
+            </h2>
+            <p>
+              A hybrid of hoodie and travel pillow, LAY Over is built for
+              journeys—designed to support your neck and improve rest on the
+              move.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="third-section" data-header="light">
+        <div class="m-top-bar">
+          <div class="m-top-left">Automatic Pillow Inflation System.</div>
+          <div class="m-top-right">Moments of rest<br />with LAY Over</div>
+        </div>
+
+        <div class="m-rows-container">
+          <div class="m-row">
+            <div class="m-row-img">
+              <div class="parallax-bg-inner bg-m1"></div>
+            </div>
+            <div class="m-row-text">
+              <div class="m-title-wrap">
+                <div
+                  class="m-circle"
+                  style="background-color: var(--accent-color)"
+                ></div>
+                <h3>CAR</h3>
+              </div>
+              <h4>Ergonomic Support,<br />Anywhere You Sit.</h4>
+              <p>
+                The pillow maintains natural cervical alignment, reducing muscle
+                strain while seated in the car. Its air chamber provides
+                proprioceptive support, encouraging correct posture and faster
+                recovery during short downtime.
+              </p>
+            </div>
+          </div>
+
+          <div class="m-row">
+            <div class="m-row-img">
+              <div class="parallax-bg-inner bg-m2"></div>
+            </div>
+            <div class="m-row-text">
+              <div class="m-title-wrap">
+                <div class="m-circle" style="background-color: #000"></div>
+                <h3>PLANE</h3>
+              </div>
+              <h4>Comfort at Altitude,<br />Engineered</h4>
+              <p>
+                Designed for flights, the integrated pillow minimizes lateral
+                head movement caused by turbulence and upright seating. Its air
+                system distributes pressure evenly, helping reduce sleep
+                fragmentation and in-flight neck fatigue.
+              </p>
+            </div>
+          </div>
+
+          <div id="dark-theme-trigger"></div>
+
+          <div class="m-row">
+            <div class="m-row-img">
+              <div class="parallax-bg-inner bg-m3"></div>
+            </div>
+            <div class="m-row-text">
+              <div class="m-title-wrap">
+                <div class="m-circle" style="background-color: #fff"></div>
+                <h3>OFFICE</h3>
+              </div>
+              <h4>Focus, Without the<br />Fatigue</h4>
+              <p>
+                Designed for long hours at the desk, the integrated pillow
+                supports upright posture during screen work, reducing neck
+                tension and micro-strain. Its adaptive air structure maintains
+                subtle proprioceptive feedback, helping sustain concentration.
+              </p>
+            </div>
+          </div>
+
+          <div class="m-row">
+            <div class="m-row-img">
+              <div class="parallax-bg-inner bg-m4"></div>
+            </div>
+            <div class="m-row-text">
+              <div class="m-title-wrap">
+                <div
+                  class="m-circle"
+                  style="background-color: var(--accent-color)"
+                ></div>
+                <h3>LEISURE</h3>
+              </div>
+              <h4>Game Longer, Stay<br />Aligned</h4>
+              <p>
+                Built for extended gaming sessions, the integrated pillow
+                stabilizes the neck during forward-focused play, reducing
+                cumulative strain. Its adaptive air structure maintains cervical
+                alignment, helping prevent fatigue and allowing you to stay
+                immersed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="s4-wrapper" data-header="dark">
+        <section class="flow-section s4">
+          <div class="s4-inner">
+            <div class="bg-s4"></div>
+            <div class="content-top">
+              <h2 class="downtime-title">
+                Revolutionise <br />
+                <span class="transparent-text">your downtime</span>
+              </h2>
+            </div>
+          </div>
+        </section>
+
+        <section class="flow-section s5">
+          <div class="parallax-bg-inner bg-s5"></div>
+          <div class="content-bottom">
+            <p class="s5-solid">Always ready for your neck</p>
+            <p class="s5-transparent transparent-text">
+              with wireless charging
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <section class="s6" data-header="light">
+        <div class="split-container">
+          <div class="split-left">
+            <h2>Wear what works</h2>
+          </div>
+          <div class="split-right">
+            <h2>Get our LAY Over now</h2>
+            <p>
+              Order LAY Over in our online store or keep track of our upcoming
+              pop ups in London this summer. You can return the hoodie within 30
+              days of ordering without giving a reason and receive a full
+              refund.
+            </p>
+            <div class="order-details">
+              <div class="o-row">
+                <span>Promise</span>
+                <span>30-day money-back</span>
+              </div>
+              <div class="o-row">
+                <span>Delivery</span>
+                <span>3 to 4 days</span>
+              </div>
+              <div class="o-row">
+                <span>Price</span>
+                <span>£200</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="s7" data-header="dark">
+        <div class="parallax-bg-inner bg-s7"></div>
+      </section>
+
+      <section class="quote-section" data-header="light">
+        <div class="quote-wrapper">
+          <div class="quote-text">
+            “Really comfortable hoodie, the neck support makes long sitting feel
+            easy and noticeably more relaxed without feeling bulky at all.”
+          </div>
+          <div class="quote-author">Mike Thephen, <span>Traveller</span></div>
+        </div>
+      </section>
+
+      <section class="premium-features" data-header="dark">
+        <div class="pf-container">
+          <div class="pf-left">
+            <div class="pf-labels">
+              <span>Pillow round black colour</span>
+              <span>Hoodie</span>
+            </div>
+            <div class="pf-text-blocks">
+              <div class="pf-text-block">
+                <p>
+                  <strong>Pump Inflation</strong> — A modern pump system
+                  replaces traditional air valves, delivering faster, cleaner
+                  inflation with minimal effort.
+                </p>
+              </div>
+              <div class="pf-text-block">
+                <p>
+                  <strong>One-Click Deflation</strong> — Release air instantly
+                  with a single press for quick packing and seamless
+                  transitions.
+                </p>
+              </div>
+              <div class="pf-text-block">
+                <p>
+                  <strong>Purposeful Loose Fit</strong> — A relaxed silhouette
+                  balances the oversized hood, creating a proportional,
+                  functional design.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="pf-right">
+            <div class="pf-sticky-wrap">
+              <div class="pf-image-box">
+                <img
+                  src="img/feature-1.min.jpg"
+                  alt="Pump Inflation"
+                  class="pf-img active"
+                />
+                <img
+                  src="img/feature-2.min.jpg"
+                  alt="One-Click Deflation"
+                  class="pf-img"
+                />
+                <img
+                  src="img/feature-3.min.jpg"
+                  alt="Purposeful Loose Fit"
+                  class="pf-img"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="premium-about" data-header="light">
+        <h2>The journey begins here —<br />more innovation is on the way.</h2>
+        <a href="/about" class="about-btn">About us</a>
+      </section>
+
+      <section class="s9" data-header="dark">
+        <div class="parallax-bg-inner bg-s9"></div>
+      </section>
+
+      <footer class="site-footer" data-header="dark">
+        <div class="footer-top">
+          <div class="footer-top-left">
+            <h2>Order now and test<br />it risk-free for 30 days</h2>
+            <p>
+              97% of all testers are already convinced. Try out LAY Over for 30
+              days without obligation. Order risk-free in our online shop with
+              our money-back guarantee, if you're not happy.
+            </p>
+            <button class="footer-order-btn">Order now</button>
+          </div>
+          <div class="footer-top-right">
+            <div class="footer-video-thumb"></div>
+          </div>
+        </div>
+
+        <div class="footer-middle">
+          <div class="footer-col footer-brand">
+            <svg><use href="#icon-logo"></use></svg>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="#">LAY Over One</a>
+            <a href="#">LAY Over Pure</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About us</a>
+          </div>
+          <div class="footer-col">
+            <h4>More</h4>
+            <a href="#">Contact</a>
+            <a href="#">Support</a>
+          </div>
+          <div class="footer-col newsletter-col">
+            <h4>Subscribe to the newsletter</h4>
+            <div class="newsletter-form">
+              <input type="email" placeholder="E-Mail" />
+              <button>Sign up</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="fb-links">
+            <span>© 2026 | YEGI</span>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+          <div class="social-icons">
+            <a href="#"
+              ><svg><use href="#icon-linkedin"></use></svg
+            ></a>
+            <a href="#"
+              ><svg><use href="#icon-insta"></use></svg
+            ></a>
+            <a href="#"
+              ><svg><use href="#icon-fb"></use></svg
+            ></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

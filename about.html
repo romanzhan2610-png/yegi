@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About YEGA — Engineered Comfort</title>
+
+    <meta
+      name="description"
+      content="I didn’t start YEGA to make another hoodie. I started it because of a problem that never really left me."
+    />
+    <meta name="theme-color" content="#000000" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/img/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/apple-touch-icon.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+
+    <style>
+      :root {
+        --accent-color: #cee827;
+        --dark-color: #111;
+        --bg-color: #f5f5f5;
+      }
+
+      body {
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        font-family: "Afacad", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Header Always Visible */
+      header#main-header {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        z-index: 1000;
+        background: transparent;
+      }
+
+      .header-on-dark .logo svg {
+        fill: #fff;
+      }
+      .header-on-dark .order-btn {
+        background: #fff;
+        color: #111;
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 16px;
+        transition: background 0.3s ease;
+      }
+      .header-on-dark .order-btn:hover {
+        background: #e2e2e2;
+      }
+
+      .about-page {
+        padding-top: 120px;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 80px;
+        padding: 0 50px;
+      }
+
+      .about-content {
+        padding-bottom: 20vh;
+      }
+
+      .about-section-block {
+        min-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px 0;
+      }
+
+      .about-section-block h1 {
+        font-size: clamp(48px, 6vw, 84px);
+        font-weight: 600;
+        margin-bottom: 40px;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+
+      .about-section-block h2 {
+        font-size: clamp(32px, 4vw, 48px);
+        font-weight: 600;
+        margin-bottom: 30px;
+        line-height: 1.1;
+      }
+
+      .about-section-block p {
+        font-size: 21px;
+        line-height: 1.6;
+        color: #999;
+        margin-bottom: 25px;
+        max-width: 680px;
+      }
+
+      .about-section-block .highlight {
+        color: #fff;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.4;
+        margin-top: 10px;
+      }
+
+      .about-section-block .quote {
+        font-size: 32px;
+        font-weight: 600;
+        color: #fff;
+        border-left: 3px solid var(--accent-color);
+        padding-left: 30px;
+        margin: 50px 0;
+        line-height: 1.3;
+      }
+
+      .about-visual {
+        position: relative;
+      }
+
+      .visual-sticky {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .visual-container {
+        width: 100%;
+        aspect-ratio: 4/5;
+        background-color: #111;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .about-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition:
+          opacity 0.7s ease,
+          transform 1.2s ease;
+        transform: scale(1.1);
+      }
+
+      .about-img.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      @media (max-width: 1024px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-visual {
+          display: none;
+        }
+        header#main-header {
+          padding: 15px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body class="header-on-dark">
+    <svg style="display: none">
+      <symbol id="icon-logo" viewBox="0 0 132 59">
+        <path
+          d="M51.7434 31.5162C53.869 31.0388 56.0677 32.1413 58.7747 31.6469C62.0611 31.0467 60.9539 29.7126 62.7576 27.776C64.5431 28.4322 64.9679 30.1341 67.2689 31.1134C69.6442 32.1244 71.9681 31.6233 74.5487 31.6084C72.1176 38.5895 59.5123 42.1825 52.5332 34.5197C52.4377 34.4148 51.6843 33.4038 51.6251 33.2143L51.7434 31.5162ZM54.2499 21.9071C56.276 22.8834 57.6374 23.804 57.6834 26.2222C54.2498 26.9936 49.8884 25.2635 48.9659 22.5725C49.7325 20.6993 52.3127 20.9736 54.2499 21.9072V21.9071ZM77.475 15.6995C78.4251 18.1883 76.4516 21.6407 75.2281 23.2869C74.5185 24.2415 70.0454 27.6164 67.7425 25.9C65.5314 24.2521 69.0462 19.2046 69.9546 18.4658C71.4099 17.2822 74.632 15.0511 77.4749 15.6995H77.475ZM97.1252 26.9306C97.0082 24.1797 99.2994 22.6694 100.58 20.3382C104.121 13.8916 97.9712 9.45314 93.7363 16.0559C91.77 19.1215 91.6684 21.4023 89.7775 22.1404C85.8495 19.5459 88.4995 -2.41213 77.4992 3.75867C72.9168 6.32931 75.6922 7.48447 74.2243 10.8861C72.3541 14.0354 63.9907 12.4022 61.915 19.971C60.5945 24.7865 58.8635 19.0318 53.3503 17.6383C48.0351 16.2949 46.5831 19.1039 42.7321 18.6264C41.8026 16.4482 41.8664 14.3897 39.4798 13.5985C37.3135 12.8803 34.5441 13.3987 33.1524 14.762C30.4048 17.4531 34.9576 23.0209 32.233 28.1973C30.018 32.4055 22.87 32.1274 24.812 25.6377C25.8368 22.2134 31.4578 18.4948 27.2183 15.4273C18.6057 9.19569 13.7553 24.9033 16.5504 32.204C18.0717 36.1775 21.2654 38.5646 26.9881 37.7802C33.2276 36.925 34.7496 32.5636 37.7128 33.2355C40.9779 43.282 20.7961 51.3172 13.28 41.9756C8.15363 35.6042 12.4828 28.3616 12.5644 25.1655C12.6614 21.3644 9.18527 20.7527 6.66584 22.6962C4.9548 24.0161 3.78088 26.7824 3.30213 29.7352C0.602549 46.3882 17.3655 61.2339 37.3606 47.2856C40.9774 44.7625 44.1669 40.217 43.7406 33.1586C45.2251 33.9739 46.4574 38.4464 52.0026 41.6087C60.0472 46.1963 70.8152 43.8651 77.3141 38.4391C85.1955 31.8588 78.8155 30.9582 79.3175 28.2381C80.0475 26.9567 80.6548 26.0906 82.3687 25.9331C85.0951 28.6312 83.6856 36.9771 82.0242 40.0842C80.1709 43.5506 76.8501 46.1811 72.4818 47.5865C60.9392 51.3001 55.3877 44.4059 51.9533 45.2516C49.6557 45.8172 49.0827 48.663 50.1174 50.9193C53.2079 57.6589 70.2672 55.4437 76.7975 52.2584C80.9023 50.256 83.4614 47.5952 86.1045 44.6274C89.9702 40.2869 89.5117 36.6985 90.1442 33.9209L90.7469 32.4472C91.3659 32.476 94.3262 33.6583 95.7867 33.9556C111.825 37.2191 116.846 23.2165 121.227 33.8436C122.525 36.9904 124.138 42.1229 121.622 44.8238C117.95 48.7654 104.297 50.6112 100.385 45.9564C98.2434 43.4082 98.699 37.9978 95.274 37.1242C90.1075 35.8064 89.7627 41.8145 91.34 45.456C96.6562 57.7295 125.75 58.3774 128.11 43.9019C129.512 35.296 123.958 28.3859 121.344 22.7907C119.784 19.4524 118.828 15.8153 114.013 16.7728C107.005 18.1664 111.672 22.4422 112.153 24.3159C110.077 27.3704 100.379 29.8805 97.125 26.9307L97.1252 26.9306Z"
+        />
+        <path
+          d="M34.013 38.1528C29.6567 45.2266 12.8503 46.4757 13.5974 32.9668C15.6933 36.6518 17.1282 39.2555 21.9119 40.3067C26.6408 41.3459 30.8748 39.5213 34.013 38.1528H34.013ZM27.4527 28.28C27.5461 25.6131 28.9191 23.1322 30.4862 22.0952C30.3193 25.2372 30.536 28.1975 27.4527 28.28ZM73.1641 10.3326C73.1633 6.06642 73.567 4.34841 76.4689 2.71729C86.9405 -3.16934 88.5643 12.1358 89.8238 20.0039C91.7537 17.7139 95.1796 7.69842 101.257 12.3924C106.581 16.5051 99.4265 23.4732 98.4731 26.5248C102.659 27.1714 107.435 25.9706 110.606 24.2616C110.022 22.4649 108.021 21.1612 108.873 18.6014C109.424 16.943 111.461 15.8421 113.758 15.463C120.187 14.4017 120.734 18.663 122.679 22.4C123.651 24.2688 124.773 25.6224 125.771 27.5396C134.083 43.5179 129.792 57.4484 107.23 56.0529C100.992 55.6671 94.931 53.3084 91.3305 48.476C90.158 46.9023 89.8236 44.7909 88.9269 43.0811C85.088 49.8736 77.3897 55.5611 66.2571 56.6369C45.2779 58.6647 45.0763 45.5778 52.278 43.5417C51.1108 42.5863 49.3169 41.5681 48.1018 40.6929C46.4869 39.5295 46.1983 38.8865 45.0168 37.5084C43.5757 47.1848 32.0272 55.1268 20.2003 54.1602C8.79862 53.2283 0.207985 43.7573 1.6665 30.8396C2.26174 25.5667 5.75283 17.813 11.801 20.7665C18.4743 24.0253 6.05394 36.4437 17.2474 43.211C22.322 46.2789 34.8088 45.31 36.6014 34.6486C32.594 37.2725 26.0405 41.8748 19.4367 38.009C11.3143 33.2544 13.8238 18.8743 19.3197 14.0041C21.8394 11.7711 26.049 12.879 28.1389 14.4818C34.8914 19.6606 23.1968 24.1054 26.6461 29.4435C29.9897 30.0611 31.6081 27.4227 31.7876 24.3075C31.9856 20.871 29.8138 17.7834 31.1496 14.9798C32.4834 12.1807 42.0915 8.66104 43.6098 17.4288C48.5363 16.5361 52.8295 13.4076 60.3065 20.2229C62.6288 13.8188 63.8612 13.8777 73.1641 10.3326L73.1641 10.3326ZM71.9081 9.49784C67.8643 10.44 60.0596 13.523 59.7054 17.7783C53.9386 13.9166 50.6318 14.1594 44.4523 15.5992C44.0269 10.4876 38.5883 10.8052 35.3004 10.8052C32.8032 10.8052 31.1636 12.8322 29.6348 13.8559C21.1683 8.18639 18.508 12.3959 15.4221 17.0755C14.4378 18.568 14.3882 18.4942 13.9457 20.3931C4.5935 15.4445 0 24.2822 0 35.2105C0 50.2704 18.074 63.0222 36.8638 51.5915C40.6722 49.2747 44.7277 45.3063 45.7598 40.8759C46.6349 41.339 46.5444 41.2496 47.3634 41.8872C48.5047 42.7757 47.6139 42.6191 49.2462 43.055C47.2579 46.0242 46.6313 44.7506 46.6313 49.5922C46.6313 60.9988 69.6478 59.7737 79.1807 54.6857C81.0189 53.7046 82.7379 52.4275 84.3693 51.158C85.2325 50.4862 85.9178 49.8335 86.6164 49.0471C87.8709 47.6346 87.2834 47.4103 88.9047 46.9773C90.3944 53.3713 100.809 57.8725 108.516 57.8725C130.983 57.8725 136.93 44.7556 126.692 26.1865C121.516 12.8975 117.926 12.7215 111.738 14.8459C109.863 15.49 107.209 16.8419 107.209 19.5215C107.209 22.1312 108.047 22.1239 108.516 23.8795C105.718 24.1124 105.048 25.1869 101.107 25.1869C102.464 22.6225 107.083 16.1522 102.975 11.988C98.4449 7.39525 92.0529 11.5335 91.0837 15.1634C88.9015 13.5646 89.9817 3.04649 83.4996 0.515533C77.3089 -1.90162 69.6073 4.70271 71.9082 9.49784H71.9081Z"
+        />
+        <path
+          d="M100.233 37.3894C109.412 37.3894 114.435 33.2466 117.23 32.5955C117.672 34.4957 119.844 37.9526 119.844 41.3117C119.844 44.8618 111.608 45.6697 108.078 45.6697C100.97 45.6697 102.532 41.7334 100.233 37.3894H100.233ZM91.3594 36.1832C102.054 33.3078 97.5023 44.1748 104.103 46.5548C109.374 48.4553 120.669 46.592 121.46 41.6571C121.83 39.3456 119.842 33.8241 118.81 32.2963C116.931 29.5151 113.881 32.4507 111.213 33.5575C106.13 35.6661 96.2429 37.0051 91.6325 34.136L91.3594 36.1832Z"
+        />
+        <path
+          d="M57.2891 45.2729C65.942 50.6541 80.9127 45.0102 81.8106 35.7871C77.1743 42.1417 68.7815 46.2587 57.2891 45.2729Z"
+        />
+        <path
+          d="M57.127 34.3915C60.1762 34.2934 61.9439 33.134 63.6233 32.2736C64.8524 32.9781 67.1236 33.5663 68.3452 34.2865C65.5058 35.9444 59.6787 37.4818 57.127 34.3915ZM53.1016 32.6981C55.5299 35.1562 57.108 37.3955 62.3119 37.4163C66.8819 37.4346 69.9108 35.1723 71.9386 33.0453C67.4517 33.1332 65.4235 31.8916 63.1876 29.9551C60.3154 33.6563 58.8587 33.6197 53.1016 32.6982V32.6981Z"
+        />
+        <path
+          d="M70.5204 22.4563C70.5572 22.4006 70.6305 22.2734 70.673 22.2103C71.7839 20.5635 73.0389 19.6026 74.4424 18.7334C74.1422 19.7669 71.3602 24.581 70.2219 22.8866L70.5204 22.4562V22.4563ZM68.5234 24.7107C72.8457 25.563 75.9012 20.5448 76.5584 16.8242C72.6052 17.3444 68.7064 20.7 68.5234 24.7107Z"
+        />
+        <path
+          d="M50.5859 22.5742C51.6403 23.9701 53.5185 25.0178 56.0744 25.0865C54.4981 23.6359 53.7292 22.6362 50.5859 22.5742Z"
+        />
+      </symbol>
+    </svg>
+
+    <header id="main-header">
+      <div class="logo">
+        <a href="/"
+          ><svg><use href="#icon-logo"></use></svg
+        ></a>
+      </div>
+      <a href="/" class="order-btn">BACK TO HOME</a>
+    </header>
+
+    <main class="about-page">
+      <div class="about-grid">
+        <div class="about-content">
+          <div class="about-section-block" data-index="0">
+            <h1>About YEGA</h1>
+            <p>
+              I didn’t start YEGA to make another hoodie. I started it because
+              of a problem that never really left me — and because our
+              generation is being asked to live in a way the body was never
+              engineered for.
+            </p>
+            <p>
+              Today, we consume more mental and physical energy than ever
+              before. We sit longer, focus deeper, and move less between
+              moments.
+            </p>
+            <p class="highlight">
+              The human body was not designed for this rhythm. And yet, this is
+              the reality we live in.
+            </p>
+          </div>
+
+          <div class="about-section-block" data-index="1">
+            <h2>The Beginning — Pain as a Design Question</h2>
+            <p>
+              For years, my neck needed more support than most people realise.
+              It affected sleep, concentration, recovery, and even my
+              performance in sports.
+            </p>
+            <p class="highlight">
+              When the neck loses support, energy drops. Focus weakens. The
+              whole body compensates.
+            </p>
+            <p>
+              Instead of accepting this as a limitation, I began to see it as a
+              design challenge.
+            </p>
+          </div>
+
+          <div class="about-section-block" data-index="2">
+            <h2>A Seated Generation</h2>
+            <p>
+              Our generation reads more, works more, studies more, and creates
+              more — often without standing up. The problem isn’t only posture —
+              it’s perception.
+            </p>
+            <p class="highlight">
+              YEGA began at the intersection of those two worlds. Not as an
+              accessory. But as a new form of clothing engineered for sitting,
+              thinking, and creating.
+            </p>
+          </div>
+
+          <div class="about-section-block" data-index="3">
+            <h2>Research & Design</h2>
+            <p>
+              I began researching the science of the neck — how cervical
+              alignment affects circulation, posture, and cognitive comfort.
+            </p>
+            <div class="quote">
+              “What if comfort wasn’t something you carried — but something you
+              wore?”
+            </div>
+            <p>
+              I worked with manufacturers and specialists, designing prototypes
+              that explored material structure, airflow systems, and silhouette
+              proportions.
+            </p>
+          </div>
+
+          <div class="about-section-block" data-index="4">
+            <h2>Guangzhou — Engineering</h2>
+            <p>
+              I travelled to Guangzhou — a global hub where technical garment
+              construction and fashion innovation intersect. Concept evolved
+              into a product.
+            </p>
+            <p class="highlight">
+              We refined modern pump inflation, adaptive air chambers, and
+              one-click deflation — engineering comfort into the garment itself.
+            </p>
+          </div>
+
+          <div class="about-section-block" data-index="5">
+            <h2>Beyond a Product</h2>
+            <p>
+              When the first pieces were released, the goal wasn’t simply to
+              sell — it was to observe how people live with support integrated
+              into their daily rhythm.
+            </p>
+            <p class="highlight">
+              YEGA is built on a belief that comfort should evolve alongside
+              culture. Not louder. Not heavier. Smarter.
+            </p>
+          </div>
+
+          <div class="about-section-block" data-index="6">
+            <h2>What Comes Next</h2>
+            <p>
+              This is only the beginning. Today, I continue researching how
+              modern life reshapes the body. YEGA will continue to explore the
+              space where fashion, technology, and health meet.
+            </p>
+            <p class="highlight">
+              More engineered comfort is coming. More solutions designed for the
+              way we actually live today.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="visual-sticky">
+            <div class="visual-container">
+              <img src="/img/about-1.jpg" class="about-img active" />
+              <img src="/img/about-2.jpg" class="about-img" />
+              <img src="/img/about-3.jpg" class="about-img" />
+              <img src="/img/about-4.jpg" class="about-img" />
+              <img src="/img/about-5.jpg" class="about-img" />
+              <img src="/img/about-6.jpg" class="about-img" />
+              <img src="/img/about-7.jpg" class="about-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer" data-header="dark">
+      <div class="footer-top">
+        <div class="footer-top-left">
+          <h2>Order now and test<br />it risk-free for 30 days</h2>
+          <p>
+            97% of all testers are already convinced. Try out LAY Over for 30
+            days without obligation. Order risk-free in our online shop with our
+            money-back guarantee, if you're not happy.
+          </p>
+          <button class="footer-order-btn">Order now</button>
+        </div>
+        <div class="footer-top-right">
+          <div class="footer-video-thumb"></div>
+        </div>
+      </div>
+
+      <div class="footer-middle">
+        <div class="footer-col footer-brand">
+          <svg><use href="#icon-logo"></use></svg>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="#">LAY Over One</a>
+          <a href="#">LAY Over Pure</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About us</a>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <a href="#">Contact</a>
+          <a href="#">Support</a>
+        </div>
+        <div class="footer-col newsletter-col">
+          <h4>Subscribe to the newsletter</h4>
+          <div class="newsletter-form">
+            <input type="email" placeholder="E-Mail" />
+            <button>Sign up</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="fb-links">
+          <span>© 2026 | YEGI</span>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+        <div class="social-icons">
+          <a href="#"
+            ><svg><use href="#icon-linkedin"></use></svg
+          ></a>
+          <a href="#"
+            ><svg><use href="#icon-insta"></use></svg
+          ></a>
+          <a href="#"
+            ><svg><use href="#icon-fb"></use></svg
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const lenis = new Lenis();
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const blocks = gsap.utils.toArray(".about-section-block");
+      const images = gsap.utils.toArray(".about-img");
+
+      blocks.forEach((block, i) => {
+        ScrollTrigger.create({
+          trigger: block,
+          start: "top center",
+          end: "bottom center",
+          onEnter: () => updateImage(i),
+          onEnterBack: () => updateImage(i),
+        });
+      });
+
+      function updateImage(index) {
+        images.forEach((img, i) => {
+          img.classList.toggle("active", i === index);
+        });
+      }
+    </script>
+  </body>
+</html>
